@@ -10,14 +10,42 @@ def common_stacks(infra):
     vpc_stack = infra.add_stack(vpc.VPCStack())
 
 
-def prod_infra(infra):
-    pass
+def prod_stacks(infra):
 
-def dev_infra(infra):
-    pass
+    prod = infra.create_sub_infra("Prod")
+
+    common_stacks(prod)
+
+    vpc_stack = prod.find_stack(vpc.VPCStack)
+
+    vpc_stack.base_cidr = "10.10"
+
+    return prod
+
+
+def dev_stacks(infra):
+
+    dev = infra.create_sub_infra("Dev")
+
+    common_stacks(dev)
+
+    vpc_stack = dev.find_stack(vpc.VPCStack)
+
+    vpc_stack.base_cidr = "10.20"
+
+    return dev
 
 def staging_stacks(infra):
-    pass
+
+    staging = infra.create_sub_infra("Staging")
+
+    common_stacks(staging)
+
+    vpc_stack = staging.find_stack(vpc.VPCStack)
+
+    vpc_stack.base_cidr = "10.30"
+
+    return staging
 
 
 
@@ -49,3 +77,7 @@ session = BotoSession(region_name='us-west-1')
 infra = Infra('StackDemo', session)
 
 infra.add_image(ubuntu_ami())
+
+prod_infra = prod_stacks(infra)
+dev_infra = dev_stacks(infra)
+staging_infra = staging_stacks(infra)
