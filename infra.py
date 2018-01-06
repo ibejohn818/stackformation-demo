@@ -4,7 +4,20 @@ from stackformation.aws.stacks import (ec2, vpc, iam,
                                         asg, )
 
 
+def common_stacks(infra):
 
+    # create VPC
+    vpc_stack = infra.add_stack(vpc.VPCStack())
+
+
+def prod_infra(infra):
+    pass
+
+def dev_infra(infra):
+    pass
+
+def staging_stacks(infra):
+    pass
 
 
 
@@ -22,7 +35,14 @@ def aws_linux_ami():
     ami.add_role('users', {'githubusers':[ 'ibejohn818', 'slikk66'] }, 200)
     return ami
 
+# set path to ansible directory
 Ami.ANSIBLE_DIR='./ansible'
+# set list to individual ansible roles
+# Ami.ANSIBLE_ROLES = [
+    # '/path/to/role',
+    # '/path/to/another/role'
+# ]
+
 
 session = BotoSession(region_name='us-west-1')
 
