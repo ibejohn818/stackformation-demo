@@ -1,0 +1,7 @@
+---
+# tasks file for devops/ansible/roles/sudo-nopw
+  - name: create sudonopw group
+    group: state=present name=sudonopw
+
+  - name: copy sudonopw 
+    copy: src=sudonopw dest=/etc/sudoers.d/sudonopw
