@@ -9,6 +9,9 @@ The bash scripts run.sh. (*nix) & run-osx.sh (MacOS) wrap the docker container a
 Example MacOS:   
 _Build AMI's and mark active_  
 `./run-osx.sh -z stacks-nat-gw-asg.py images build web -a`   
+
+![ami-build](https://s3.us-east-2.amazonaws.com/stf-assets/build-ami.gif)
+
 _Build Cloudformation Stacks_   
 `./run-osx.sh -z stacks-nat-gw-asg.py stacks build`
 
