@@ -1,0 +1,14 @@
+---
+
+- include: debian.yaml
+  when: ansible_os_family == 'Debian'
+
+- include: redhat.yaml
+  when: ansible_os_family == 'RedHat'
+
+- name: install pip
+  easy_install: name=pip state=latest
+
+- name: install pip packages
+  pip: name="{{ item }}"
+  with_items: "{{ pip_packages }}"

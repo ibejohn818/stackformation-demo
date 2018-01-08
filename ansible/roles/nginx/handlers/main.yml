@@ -1,0 +1,4 @@
+---
+# handlers file for devops/ansible/roles/nginx
+- name: restart nginx
+  service: name=nginx state=restarted

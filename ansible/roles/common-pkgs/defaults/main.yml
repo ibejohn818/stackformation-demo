@@ -1,0 +1,26 @@
+---
+# defaults file for ansible/roles/common-pkgs
+packages_all:
+  - zip
+  - unzip
+  - git
+  - strace
+  - curl
+  - python
+  - bash-completion
+  - python-setuptools
+
+packages_apt:
+  - python3
+  - python-dev
+
+packages_yum:
+  - python34
+
+
+pip_packages:
+  - serf-master
+  - boto
+  - boto3
+  - awscli
+

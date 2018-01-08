@@ -1,0 +1,9 @@
+---
+
+- name: install common packages APT (all)
+  apt: pkg="{{ item }}" state=latest
+  with_items: "{{ packages_all }}"
+
+- name: install common packages APT (apt)
+  apt: pkg="{{ item }}" state=latest
+  with_items: "{{ packages_apt }}"

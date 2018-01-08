@@ -54,13 +54,13 @@ def staging_stacks(infra):
 def ubuntu_ami():
     ami = Ami("WebUbuntu", "ubuntu")
     ami.add_role('sudo-nopw', {}, 100)
-    ami.add_role('users', {'githubusers':[ 'ibejohn818', 'slikk66'] }, 200)
+    ami.add_role('users', {'githubusers':[ 'ibejohn818'] }, 200)
     return ami
 
 def aws_linux_ami():
     ami = Ami("WebUbuntu", "awslinux")
     ami.add_role('sudo-nopw', {}, 100)
-    ami.add_role('users', {'githubusers':[ 'ibejohn818', 'slikk66'] }, 200)
+    ami.add_role('users', {'githubusers':[ 'ibejohn818'] }, 200)
     return ami
 
 # set path to ansible directory

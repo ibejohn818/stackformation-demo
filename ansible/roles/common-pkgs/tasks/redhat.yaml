@@ -1,0 +1,9 @@
+---
+
+- name: install common packages YUM (all)
+  yum: pkg="{{ item }}" state=latest
+  with_items: "{{ packages_all }}"
+
+- name: install common packages YUM (yum)
+  yum: pkg="{{ item }}" state=latest
+  with_items: "{{ packages_yum }}"
